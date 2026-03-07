@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kiran Krishna Tunuguntla | Software Engineer</title>
+  <meta name="description" content="Portfolio of Kiran Krishna Tunuguntla - Software Engineer based in Munich, Germany. Specializing in IoT, Embedded Systems, and Full-Stack Development." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__container">
+      <a href="#hero" class="nav__logo">KKT</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#about" class="nav__link">About</a></li>
+        <li><a href="#experience" class="nav__link">Experience</a></li>
+        <li><a href="#skills" class="nav__link">Skills</a></li>
+        <li><a href="#education" class="nav__link">Education</a></li>
+        <li><a href="#awards" class="nav__link">Awards</a></li>
+        <li><a href="#contact" class="nav__link">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="theme-icon sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="theme-icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <canvas id="particleCanvas" class="hero__canvas"></canvas>
+    <div class="hero__content">
+      <div class="hero__greeting" data-animate="fade-up">Hello, I'm</div>
+      <h1 class="hero__name" data-animate="fade-up" data-delay="100">
+        Kiran Krishna<br/><span class="hero__name--accent">Tunuguntla</span>
+      </h1>
+      <div class="hero__roles" data-animate="fade-up" data-delay="200">
+        <span class="hero__role-text" id="typedText"></span>
+        <span class="hero__cursor">|</span>
+      </div>
+      <p class="hero__location" data-animate="fade-up" data-delay="300">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+        </svg>
+        Munich, Germany
+      </p>
+      <div class="hero__cta" data-animate="fade-up" data-delay="400">
+        <a href="#contact" class="btn btn--primary">Get In Touch</a>
+        <a href="#experience" class="btn btn--outline">View My Work</a>
+      </div>
+      <div class="hero__social" data-animate="fade-up" data-delay="500">
+        <a href="https://github.com/kirankkt" target="_blank" rel="noopener noreferrer" class="hero__social-link" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/kiran-krishna-t-6a5a256b/" target="_blank" rel="noopener noreferrer" class="hero__social-link" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="mailto:k.kiran73@gmail.com" class="hero__social-link" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero__scroll">
+      <span>Scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section about" id="about">
+    <div class="container">
+      <h2 class="section__title" data-animate="fade-up">
+        <span class="section__number">01.</span> About Me
+      </h2>
+      <div class="about__grid">
+        <div class="about__text" data-animate="fade-up" data-delay="100">
+          <p>
+            I'm a <strong>Software Engineer</strong> based in Munich, Germany, with <strong>6+ years</strong> of
+            professional experience building robust software systems across IoT, embedded, and web domains.
+          </p>
+          <p>
+            My journey spans from developing firmware for NFC readers at <strong>Fraunhofer EMFT</strong> to
+            architecting charging station services at <strong>Charge-V</strong> that achieved <strong>98% availability</strong>.
+            I have a strong foundation in both hardware-software interfaces and modern cloud-native development.
+          </p>
+          <p>
+            I hold a Master's degree in Communications Engineering from <strong>Technical University of Munich</strong>,
+            where my thesis applied Deep Learning to semiconductor process optimization. This blend of academic rigor
+            and industry experience drives my approach to engineering elegant, performant solutions.
+          </p>
+        </div>
+        <div class="about__stats" data-animate="fade-up" data-delay="200">
+          <div class="stat-card">
+            <span class="stat-card__number" data-count="6">0</span><span class="stat-card__plus">+</span>
+            <span class="stat-card__label">Years Experience</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__number" data-count="5">0</span><span class="stat-card__plus">+</span>
+            <span class="stat-card__label">Companies</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__number" data-count="98">0</span><span class="stat-card__plus">%</span>
+            <span class="stat-card__label">System Uptime</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__number" data-count="240">0</span><span class="stat-card__plus">kW</span>
+            <span class="stat-card__label">Max Power Boost</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="section experience" id="experience">
+    <div class="container">
+      <h2 class="section__title" data-animate="fade-up">
+        <span class="section__number">02.</span> Experience
+      </h2>
+      <div class="timeline">
+
+        <div class="timeline__item" data-animate="fade-up">
+          <div class="timeline__dot timeline__dot--active"></div>
+          <div class="timeline__card">
+            <div class="timeline__header">
+              <div>
+                <h3 class="timeline__role">Software Engineer</h3>
+                <p class="timeline__company">Setrade GmbH</p>
+              </div>
+              <div class="timeline__meta">
+                <span class="timeline__date">Jan 2026 - Present</span>
+                <span class="timeline__location">Munich, Germany</span>
+              </div>
+            </div>
+            <span class="timeline__badge timeline__badge--current">Current</span>
+          </div>
+        </div>
+
+        <div class="timeline__item" data-animate="fade-up">
+          <div class="timeline__dot"></div>
+          <div class="timeline__card">
+            <div class="timeline__header">
+              <div>
+                <h3 class="timeline__role">IoT Software Engineer</h3>
+                <p class="timeline__company">Charge-V GmbH</p>
+              </div>
+              <div class="timeline__meta">
+                <span class="timeline__date">Nov 2022 - Dec 2025</span>
+                <span class="timeline__location">Munich, Germany</span>
+              </div>
+            </div>
+            <ul class="timeline__details">
+              <li>Responsible for charging station services including Energy Management, Monitoring &amp; Diagnostics, Charging Controller and User Interface</li>
+              <li>Improved charging station availability to <strong>98%</strong> through error handling mechanisms and network stability</li>
+              <li>Developed boosting feature combining multiple stations to deliver power up to <strong>240kW</strong></li>
+            </ul>
+            <div class="timeline__tags">
+              <span class="tag">IoT</span><span class="tag">Energy Management</span><span class="tag">Monitoring</span><span class="tag">Diagnostics</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline__item" data-animate="fade-up">
+          <div class="timeline__dot"></div>
+          <div class="timeline__card">
+            <div class="timeline__header">
+              <div>
+                <h3 class="timeline__role">Software Developer</h3>
+                <p class="timeline__company">Polytech Wind Power Technology Germany GmbH</p>
+              </div>
+              <div class="timeline__meta">
+                <span class="timeline__date">Sep 2020 - Oct 2022</span>
+                <span class="timeline__location">Munich, Germany</span>
+              </div>
+            </div>
+            <ul class="timeline__details">
+              <li>Led software infrastructure development, device provisioning and management, application deployment and monitoring</li>
+              <li>Developed Ice Detection System (RIC) for in-house operating system</li>
+              <li>Provided 3rd level technical support for customer projects</li>
+            </ul>
+            <div class="timeline__tags">
+              <span class="tag">Infrastructure</span><span class="tag">Device Management</span><span class="tag">Yocto</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline__item" data-animate="fade-up">
+          <div class="timeline__dot"></div>
+          <div class="timeline__card">
+            <div class="timeline__header">
+              <div>
+                <h3 class="timeline__role">Software Developer</h3>
+                <p class="timeline__company">Fos4x GmbH</p>
+              </div>
+              <div class="timeline__meta">
+                <span class="timeline__date">Mar 2020 - Aug 2020</span>
+                <span class="timeline__location">Munich, Germany</span>
+              </div>
+            </div>
+            <ul class="timeline__details">
+              <li>Designed, developed, tested and deployed system health monitoring pipeline on data processing units (DPUs)</li>
+              <li>Significantly reduced troubleshooting time and improved issue isolation on remote wind turbines</li>
+            </ul>
+            <div class="timeline__tags">
+              <span class="tag">C++</span><span class="tag">Python</span><span class="tag">Docker</span><span class="tag">MQTT</span><span class="tag">PostgreSQL</span><span class="tag">Grafana</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline__item" data-animate="fade-up">
+          <div class="timeline__dot"></div>
+          <div class="timeline__card">
+            <div class="timeline__header">
+              <div>
+                <h3 class="timeline__role">Working Student &amp; Master Thesis</h3>
+                <p class="timeline__company">Fraunhofer EMFT</p>
+              </div>
+              <div class="timeline__meta">
+                <span class="timeline__date">Mar 2018 - Feb 2020</span>
+                <span class="timeline__location">Munich, Germany</span>
+              </div>
+            </div>
+            <ul class="timeline__details">
+              <li>Master thesis: "Detection and Classification of Semiconductor Processes using Deep Learning Neural Networks"</li>
+              <li>Achieved <strong>15%</strong> performance boost with hybrid CNN-LSTM models over non-hybrid models</li>
+              <li>Developed firmware for NFC readers &amp; tags, BLE, USB; built real-time sensor data visualization</li>
+              <li>Designed PCBs with Altium; built data management with InfluxDB &amp; Grafana</li>
+              <li>Developed RNN architectures for energy consumption forecasting</li>
+            </ul>
+            <div class="timeline__tags">
+              <span class="tag">Deep Learning</span><span class="tag">CNN</span><span class="tag">LSTM</span><span class="tag">NFC</span><span class="tag">PCB Design</span><span class="tag">Altium</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="section skills" id="skills">
+    <div class="container">
+      <h2 class="section__title" data-animate="fade-up">
+        <span class="section__number">03.</span> Skills &amp; Technologies
+      </h2>
+      <div class="skills__grid">
+
+        <div class="skill-category" data-animate="fade-up">
+          <div class="skill-category__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3 class="skill-category__title">Languages</h3>
+          <div class="skill-category__items">
+            <div class="skill-pill">Python</div>
+            <div class="skill-pill">C/C++</div>
+            <div class="skill-pill">TypeScript</div>
+            <div class="skill-pill">Shell/Lua</div>
+          </div>
+        </div>
+
+        <div class="skill-category" data-animate="fade-up" data-delay="100">
+          <div class="skill-category__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3 class="skill-category__title">Frameworks</h3>
+          <div class="skill-category__items">
+            <div class="skill-pill">Django-ninja</div>
+            <div class="skill-pill">FastAPI</div>
+            <div class="skill-pill">Yocto</div>
+            <div class="skill-pill">Orocos-RTT</div>
+          </div>
+        </div>
+
+        <div class="skill-category" data-animate="fade-up" data-delay="200">
+          <div class="skill-category__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+          </div>
+          <h3 class="skill-category__title">Technologies</h3>
+          <div class="skill-category__items">
+            <div class="skill-pill">MQTT</div>
+            <div class="skill-pill">CAN</div>
+            <div class="skill-pill">Modbus</div>
+            <div class="skill-pill">WebSockets</div>
+            <div class="skill-pill">D-Bus</div>
+            <div class="skill-pill">GOOSE</div>
+          </div>
+        </div>
+
+        <div class="skill-category" data-animate="fade-up" data-delay="300">
+          <div class="skill-category__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3 class="skill-category__title">DevOps</h3>
+          <div class="skill-category__items">
+            <div class="skill-pill">Docker/Podman</div>
+            <div class="skill-pill">Kubernetes</div>
+            <div class="skill-pill">Ansible</div>
+            <div class="skill-pill">GitLab CI</div>
+            <div class="skill-pill">GitHub Actions</div>
+          </div>
+        </div>
+
+        <div class="skill-category" data-animate="fade-up" data-delay="400">
+          <div class="skill-category__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <h3 class="skill-category__title">Databases</h3>
+          <div class="skill-category__items">
+            <div class="skill-pill">PostgreSQL</div>
+            <div class="skill-pill">MySQL</div>
+            <div class="skill-pill">Redis</div>
+            <div class="skill-pill">NoSQL</div>
+            <div class="skill-pill">InfluxDB</div>
+          </div>
+        </div>
+
+        <div class="skill-category" data-animate="fade-up" data-delay="500">
+          <div class="skill-category__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h3 class="skill-category__title">Protocols</h3>
+          <div class="skill-category__items">
+            <div class="skill-pill">TCP/IP</div>
+            <div class="skill-pill">HTTP/HTTPS</div>
+            <div class="skill-pill">BLE</div>
+            <div class="skill-pill">NFC</div>
+            <div class="skill-pill">USB</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section class="section education" id="education">
+    <div class="container">
+      <h2 class="section__title" data-animate="fade-up">
+        <span class="section__number">04.</span> Education
+      </h2>
+      <div class="education__grid">
+        <div class="edu-card" data-animate="fade-up">
+          <div class="edu-card__accent"></div>
+          <div class="edu-card__content">
+            <div class="edu-card__degree">Master of Science</div>
+            <div class="edu-card__field">Communications Engineering</div>
+            <div class="edu-card__school">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 12 3 12 0v-5"/></svg>
+              Technical University of Munich
+            </div>
+            <div class="edu-card__meta">
+              <span class="edu-card__date">Oct 2016 - Aug 2019</span>
+              <span class="edu-card__location">Munich, Germany</span>
+            </div>
+            <div class="edu-card__grade">Grade: 2.1</div>
+            <p class="edu-card__thesis">
+              Thesis: "Detection and Classification of Semiconductor Processes using Deep Learning Neural Networks"
+            </p>
+          </div>
+        </div>
+        <div class="edu-card" data-animate="fade-up" data-delay="150">
+          <div class="edu-card__accent"></div>
+          <div class="edu-card__content">
+            <div class="edu-card__degree">Bachelor of Technology</div>
+            <div class="edu-card__field">Electronics and Communication Engineering</div>
+            <div class="edu-card__school">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 12 3 12 0v-5"/></svg>
+              Vellore Institute of Technology
+            </div>
+            <div class="edu-card__meta">
+              <span class="edu-card__date">Aug 2012 - May 2016</span>
+              <span class="edu-card__location">Vellore, India</span>
+            </div>
+            <div class="edu-card__grade">Grade: 1.54</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Awards Section -->
+  <section class="section awards" id="awards">
+    <div class="container">
+      <h2 class="section__title" data-animate="fade-up">
+        <span class="section__number">05.</span> Honors &amp; Certifications
+      </h2>
+      <div class="awards__grid">
+        <div class="award-card" data-animate="fade-up">
+          <div class="award-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+          </div>
+          <h3 class="award-card__title">Autonomous Mobile Robots</h3>
+          <p class="award-card__desc">Certificate of completion from ETH Zurich, edX</p>
+          <span class="award-card__date">Oct 2019 - Jan 2020</span>
+        </div>
+        <div class="award-card" data-animate="fade-up" data-delay="100">
+          <div class="award-card__icon award-card__icon--gold">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 7 8 7 8"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5C17 4 17 8 17 8"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+          </div>
+          <h3 class="award-card__title">3rd Place - Munich Tech Fest 2019</h3>
+          <p class="award-card__desc">Sandkraft: a unique solution to tackle air pollution in cities</p>
+          <span class="award-card__date">Nov 2019</span>
+        </div>
+        <div class="award-card" data-animate="fade-up" data-delay="200">
+          <div class="award-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+          </div>
+          <h3 class="award-card__title">Deep Learning Specialization</h3>
+          <p class="award-card__desc">Certificate from deeplearning.ai, Coursera</p>
+          <span class="award-card__date">Mar - Jun 2019</span>
+        </div>
+        <div class="award-card" data-animate="fade-up" data-delay="300">
+          <div class="award-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <h3 class="award-card__title">Infineon Summer School</h3>
+          <p class="award-card__desc">Digital Industry and Products - Completed with Distinction</p>
+          <span class="award-card__date">Aug 2018</span>
+        </div>
+        <div class="award-card" data-animate="fade-up" data-delay="400">
+          <div class="award-card__icon award-card__icon--gold">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3 class="award-card__title">Best Technical Workshop</h3>
+          <p class="award-card__desc">Awarded at Gravitas'14 technical fest, VIT University</p>
+          <span class="award-card__date">Sep 2014</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Languages Section -->
+  <section class="section languages" id="languages">
+    <div class="container">
+      <h2 class="section__title" data-animate="fade-up">
+        <span class="section__number">06.</span> Languages
+      </h2>
+      <div class="languages__grid">
+        <div class="lang-card" data-animate="fade-up">
+          <span class="lang-card__name">English</span>
+          <div class="lang-card__bar"><div class="lang-card__fill" data-width="95"></div></div>
+          <span class="lang-card__level">Fluent</span>
+        </div>
+        <div class="lang-card" data-animate="fade-up" data-delay="100">
+          <span class="lang-card__name">Telugu</span>
+          <div class="lang-card__bar"><div class="lang-card__fill" data-width="100"></div></div>
+          <span class="lang-card__level">Native</span>
+        </div>
+        <div class="lang-card" data-animate="fade-up" data-delay="200">
+          <span class="lang-card__name">Hindi</span>
+          <div class="lang-card__bar"><div class="lang-card__fill" data-width="60"></div></div>
+          <span class="lang-card__level">Intermediate</span>
+        </div>
+        <div class="lang-card" data-animate="fade-up" data-delay="300">
+          <span class="lang-card__name">German</span>
+          <div class="lang-card__bar"><div class="lang-card__fill" data-width="60"></div></div>
+          <span class="lang-card__level">Intermediate</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <h2 class="section__title" data-animate="fade-up">
+        <span class="section__number">07.</span> Get In Touch
+      </h2>
+      <div class="contact__content" data-animate="fade-up" data-delay="100">
+        <p class="contact__text">
+          I'm currently open to new opportunities and collaborations. Whether you have a question,
+          a project idea, or just want to connect - feel free to reach out!
+        </p>
+        <div class="contact__cards">
+          <a href="mailto:k.kiran73@gmail.com" class="contact-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <span class="contact-card__label">Email</span>
+            <span class="contact-card__value">k.kiran73@gmail.com</span>
+          </a>
+          <a href="tel:+4915171261193" class="contact-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span class="contact-card__label">Phone</span>
+            <span class="contact-card__value">+49 151 7126 1193</span>
+          </a>
+          <a href="https://www.linkedin.com/in/kiran-krishna-t-6a5a256b/" target="_blank" rel="noopener noreferrer" class="contact-card">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <span class="contact-card__label">LinkedIn</span>
+            <span class="contact-card__value">Kiran Krishna T</span>
+          </a>
+          <a href="https://github.com/kirankkt" target="_blank" rel="noopener noreferrer" class="contact-card">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            <span class="contact-card__label">GitHub</span>
+            <span class="contact-card__value">kirankkt</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__text">Designed &amp; Built by Kiran Krishna Tunuguntla</p>
+      <p class="footer__copyright">&copy; 2026 All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
