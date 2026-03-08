@@ -10,8 +10,9 @@
     'Software Engineer',
     'IoT Developer',
     'Embedded Systems Engineer',
-    'Deep Learning Enthusiast',
     'Full-Stack Developer',
+    'Edge computing Enthusiast',
+    'Deep Learning Enthusiast',
   ];
 
   let roleIndex = 0;
