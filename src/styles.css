@@ -965,13 +965,224 @@ img { max-width: 100%; height: auto; }
 /* --- Animations --- */
 [data-animate] {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(28px);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-animate="fade-left"] {
+  transform: translateX(-36px);
+}
+
+[data-animate="fade-right"] {
+  transform: translateX(36px);
+}
+
+[data-animate="scale"] {
+  transform: scale(0.9);
+  transition: opacity 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 [data-animate].visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+}
+
+/* ============================================
+   PREMIUM ANIMATIONS & TRANSITIONS
+   ============================================ */
+
+/* --- Page Entrance --- */
+@keyframes pageEntrance {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+body {
+  animation: pageEntrance 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* --- Shimmer on Hero Name --- */
+@keyframes shimmerFlow {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+.hero__name--accent {
+  background: linear-gradient(135deg, #6366f1 0%, #06b6d4 25%, #818cf8 50%, #06b6d4 75%, #6366f1 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerFlow 6s linear infinite;
+}
+
+/* --- Gradient hero greeting --- */
+.hero__greeting {
+  background: linear-gradient(90deg, var(--accent-light), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* --- Animated education card accent bar --- */
+.edu-card__accent {
+  background: linear-gradient(90deg, #6366f1, #06b6d4, #818cf8, #6366f1);
+  background-size: 200% auto;
+  animation: shimmerFlow 4s linear infinite;
+}
+
+/* --- Nav link animated underline --- */
+.nav__link {
+  position: relative;
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+  border-radius: 2px;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), left 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav__link:hover::after,
+.nav__link--active::after {
+  width: calc(100% - 32px);
+  left: 16px;
+}
+
+/* --- Button light sweep --- */
+.btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: skewX(-15deg);
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+
+.btn:hover::before {
+  left: 160%;
+}
+
+/* --- Card hover glow elevation --- */
+.skill-category:hover,
+.edu-card:hover,
+.award-card:hover {
+  box-shadow: 0 20px 56px var(--accent-glow), 0 0 0 1px rgba(99, 102, 241, 0.12);
+}
+
+/* --- Timeline card left accent --- */
+.timeline__card {
+  border-left: 3px solid transparent;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline__card:hover {
+  border-left-color: var(--accent);
+  transform: translateX(6px);
+}
+
+/* --- Pulse glow on active timeline dot --- */
+@keyframes dotPulse {
+  0%, 100% { box-shadow: 0 0 0 4px var(--accent-glow), 0 0 14px var(--accent-glow); }
+  50%       { box-shadow: 0 0 0 8px rgba(99, 102, 241, 0.08), 0 0 24px rgba(99, 102, 241, 0.2); }
+}
+
+.timeline__dot--active {
+  animation: dotPulse 2.5s ease-in-out infinite;
+}
+
+/* --- Staggered skill pill reveal --- */
+.skill-category__items .skill-pill {
+  opacity: 0;
+  transform: translateY(10px) scale(0.94);
+  transition: opacity 0.3s ease, transform 0.3s ease, border-color 0.3s, color 0.3s;
+}
+
+.skill-category.pills-visible .skill-pill { opacity: 1; transform: none; }
+.skill-category.pills-visible .skill-pill:nth-child(1)  { transition-delay: 0.03s; }
+.skill-category.pills-visible .skill-pill:nth-child(2)  { transition-delay: 0.06s; }
+.skill-category.pills-visible .skill-pill:nth-child(3)  { transition-delay: 0.09s; }
+.skill-category.pills-visible .skill-pill:nth-child(4)  { transition-delay: 0.12s; }
+.skill-category.pills-visible .skill-pill:nth-child(5)  { transition-delay: 0.15s; }
+.skill-category.pills-visible .skill-pill:nth-child(6)  { transition-delay: 0.18s; }
+.skill-category.pills-visible .skill-pill:nth-child(7)  { transition-delay: 0.21s; }
+.skill-category.pills-visible .skill-pill:nth-child(8)  { transition-delay: 0.24s; }
+.skill-category.pills-visible .skill-pill:nth-child(9)  { transition-delay: 0.27s; }
+.skill-category.pills-visible .skill-pill:nth-child(10) { transition-delay: 0.30s; }
+.skill-category.pills-visible .skill-pill:nth-child(11) { transition-delay: 0.33s; }
+.skill-category.pills-visible .skill-pill:nth-child(12) { transition-delay: 0.36s; }
+
+/* --- Social link staggered entrance --- */
+@keyframes socialEntrance {
+  from { opacity: 0; transform: translateY(14px) scale(0.85); }
+  to   { opacity: 1; transform: none; }
+}
+
+.hero__social-link {
+  opacity: 0;
+  animation: socialEntrance 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+.hero__social-link:nth-child(1) { animation-delay: 0.75s; }
+.hero__social-link:nth-child(2) { animation-delay: 0.85s; }
+.hero__social-link:nth-child(3) { animation-delay: 0.95s; }
+
+/* --- Tag micro-interaction --- */
+.tag {
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+.tag:hover {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: rgba(99, 102, 241, 0.4);
+  transform: translateY(-1px);
+}
+
+/* --- Floating scroll indicator --- */
+@keyframes floatBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(-5px); }
+}
+
+.hero__scroll {
+  animation: floatBounce 2.5s ease-in-out infinite;
+}
+
+/* --- Reduced Motion: disable all animations --- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  [data-animate] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero__social-link {
+    opacity: 1;
+  }
+
+  .skill-category__items .skill-pill {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* --- Responsive Design --- */
@@ -1061,4 +1272,46 @@ img { max-width: 100%; height: auto; }
   .awards__grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* --- Proficiency tooltip on skill pills --- */
+.skill-pill[data-level] {
+  position: relative;
+}
+
+.skill-pill[data-level]::after {
+  content: attr(data-level) " / 10";
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%) scale(0.85);
+  background: var(--bg-secondary);
+  color: var(--accent-light);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  padding: 3px 8px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+.skill-pill[data-level]:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+/* --- Inline link style --- */
+.inline-link {
+  color: var(--accent-light);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+.inline-link:hover {
+  color: var(--accent);
 }

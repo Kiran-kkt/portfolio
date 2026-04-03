@@ -10,7 +10,7 @@
     'Software Engineer',
     'IoT Developer',
     'Embedded Systems Engineer',
-    'Full-Stack Developer',
+    'Hardware-Software Enthusiast',
     'Edge computing Enthusiast',
     'Deep Learning Enthusiast',
   ];
@@ -258,4 +258,82 @@
       }
     });
   });
+
+  // --- 3D Tilt on cards (only on non-touch devices) ---
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!prefersReduced && !('ontouchstart' in window)) {
+    var tiltTargets = document.querySelectorAll('.skill-category, .edu-card, .award-card, .stat-card');
+
+    tiltTargets.forEach(function (card) {
+      card.addEventListener('mousemove', function (e) {
+        var rect = card.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+        var cx = rect.width / 2;
+        var cy = rect.height / 2;
+        var rx = ((y - cy) / cy) * -5;
+        var ry = ((x - cx) / cx) * 5;
+        card.style.transform = 'perspective(900px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) translateZ(6px)';
+        card.style.transition = 'transform 0.1s ease';
+      });
+
+      card.addEventListener('mouseleave', function () {
+        card.style.transition = 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease';
+        card.style.transform = '';
+      });
+    });
+
+    // --- Magnetic buttons ---
+    var magnetBtns = document.querySelectorAll('.btn');
+    magnetBtns.forEach(function (btn) {
+      btn.addEventListener('mousemove', function (e) {
+        var rect = btn.getBoundingClientRect();
+        var moveX = ((e.clientX - rect.left) - rect.width / 2) * 0.15;
+        var moveY = ((e.clientY - rect.top) - rect.height / 2) * 0.15;
+        btn.style.transform = 'translate(' + moveX + 'px, ' + moveY + 'px) translateY(-2px)';
+        btn.style.transition = 'transform 0.15s ease';
+      });
+      btn.addEventListener('mouseleave', function () {
+        btn.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+        btn.style.transform = '';
+      });
+    });
+  }
+
+  // --- Staggered skill pill reveal ---
+  var skillCategories = document.querySelectorAll('.skill-category');
+  var pillObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('pills-visible');
+        pillObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  skillCategories.forEach(function (cat) { pillObserver.observe(cat); });
+
+  // --- Stat card pop after counter finishes ---
+  if (!prefersReduced) {
+    document.querySelectorAll('[data-count]').forEach(function (el) {
+      var card = el.closest('.stat-card');
+      if (!card) return;
+      var popObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            setTimeout(function () {
+              card.style.transition = 'transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)';
+              card.style.transform = 'translateY(-5px) scale(1.03)';
+              setTimeout(function () {
+                card.style.transform = '';
+              }, 350);
+            }, 1550);
+            popObs.unobserve(el);
+          }
+        });
+      }, { threshold: 0.5 });
+      popObs.observe(el);
+    });
+  }
 })();
