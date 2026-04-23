@@ -217,6 +217,25 @@ img { max-width: 100%; height: auto; }
   max-width: 720px;
 }
 
+.hero__avatar {
+  margin-bottom: 28px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero__avatar-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 35%;
+  border: 3px solid transparent;
+  background:
+    linear-gradient(var(--bg-primary), var(--bg-primary)) padding-box,
+    var(--gradient-text) border-box;
+  box-shadow: 0 0 32px rgba(99, 102, 241, 0.25);
+}
+
 .hero__greeting {
   font-size: 1rem;
   font-weight: 500;
