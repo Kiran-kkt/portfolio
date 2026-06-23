@@ -149,6 +149,17 @@ img { max-width: 100%; height: auto; }
   background: var(--accent-glow);
 }
 
+.nav__link--cv {
+  color: var(--accent-light);
+  border: 1px solid var(--accent);
+  padding: 6px 14px;
+}
+
+.nav__link--cv:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
 .nav__toggle {
   display: none;
   flex-direction: column;
